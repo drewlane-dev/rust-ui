@@ -1,0 +1,13 @@
+{
+  "appId": "io.ionic.starter",
+  "appName": "myApp",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "../../dist/apps/discogs-notifier-mobile",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 3
+    }
+  },
+  "cordova": {}
+}

@@ -1,0 +1,17 @@
+<div class="navigation-container">
+  <mat-toolbar color="primary" @flyInOutToolbar>
+    <span>{{title}}</span>
+  </mat-toolbar>
+
+  <div class="navigation-body" style="display:flex;">
+    <app-sidenav [links]="links">
+      <div sidenav-content>
+        <ng-content select="[sidenav-content]"  ></ng-content>
+      </div>
+    </app-sidenav>
+
+    <ng-content></ng-content>
+  </div>
+
+
+</div>

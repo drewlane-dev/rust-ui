@@ -1,0 +1,21 @@
+{
+  "title": "Discogs Notifier",
+  "authEnabled": true,
+  "issuer": "https://discogs-notifier-gateway-f54qldzzzq-uc.a.run.app/auth",
+  "showDebugInformation": true,
+  "tokenRefresh": 30000,
+  "redirectPath": "/auth-redirect",
+  "postLogoutRedirectPath": "/dashboard",
+  "logoutPath": "/dashboard",
+  "scopes": [
+    "openid",
+    "email",
+    "profile",
+    "firstname",
+    "lastname",
+    "phone",
+    "name",
+    "employeeID",
+    "memberof"
+  ]
+}

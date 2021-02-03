@@ -1,0 +1,23 @@
+<div>
+  <ng-container *ngIf="hasError$ | async; else noError">
+    <h1>An error occurred logging in</h1>
+    <p>{{ errorMessage$ | async }}</p>
+    <div>
+      <button type="button" mat-button color="primary" (click)="login()">
+        Click here to try again
+      </button>
+    </div>
+  </ng-container>
+
+  <ng-template #noError>
+    <ng-container *ngIf="isLoggedIn$ | async; else waiting">
+      <h1>Login Succeeded!</h1>
+      <h5>
+        You will be redirected now...
+      </h5>
+    </ng-container>
+    <ng-template #waiting>
+      <span class="ellipses">...</span>
+    </ng-template>
+  </ng-template>
+</div>

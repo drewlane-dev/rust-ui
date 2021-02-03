@@ -1,0 +1,75 @@
+{
+  "npmScope": "best-practice",
+  "affected": {
+    "defaultBase": "master"
+  },
+  "implicitDependencies": {
+    "angular.json": "*",
+    "package.json": "*",
+    "tsconfig.base.json": "*",
+    "tslint.json": "*",
+    "nx.json": "*"
+  },
+  "projects": {
+    "common-config": {
+      "tags": [
+        "lib"
+      ]
+    },
+    "common-auth": {
+      "tags": [
+        "lib"
+      ]
+    },
+    "common-navigation": {
+      "tags": [
+        "lib"
+      ]
+    },
+    "features-home": {
+      "tags": [
+        "feature"
+      ]
+    },
+    "features-nested-router": {
+      "tags": [
+        "feature"
+      ]
+    },
+    "features-login": {
+      "tags": [
+        "feature"
+      ]
+    },
+    "features-table": {
+      "tags": [
+        "feature"
+      ]
+    },
+    "common-router": {
+      "tags": [
+        "lib"
+      ]
+    },
+    "common-core": {
+      "tags": [
+        "lib"
+      ]
+    },
+    "discogs-notifier-web": {
+      "tags": []
+    },
+    "discogs-notifier-web-e2e": {
+      "tags": []
+    },
+    "discogs-notifier-mobile": {
+      "tags": []
+    },
+    "discogs-notifier-mobile-e2e": {
+      "tags": [],
+      "implicitDependencies": [
+        "discogs-notifier-mobile"
+      ]
+    }
+  }
+}

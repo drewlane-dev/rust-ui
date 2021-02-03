@@ -1,0 +1,12 @@
+<app-navigation [links]="links" [title] = "title">
+    <div class="navigation-content" sidenav-content>
+      some extra content
+    </div>
+  <div class="navigation-content" sidenav-content>
+    some more extra content that should wrap around in the sidenav container
+  </div>
+  <div class="content-container">
+    <router-outlet></router-outlet>
+
+  </div>
+</app-navigation>

@@ -1,0 +1,19 @@
+.footer{
+  text-align: center;
+  border-top: #8080805c;
+  border-top-width: 1px;
+  border-top-style: solid;
+  margin-left:50px;
+  margin-right:50px;
+}
+
+.navigation-body{
+  height:calc(100vh - 64px);
+  overflow-y: auto;
+}
+
+.navigation-container {
+  height:100vh;
+}
+
+

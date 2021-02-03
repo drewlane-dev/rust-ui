@@ -1,0 +1,22 @@
+{
+  "title": "Rust Inventory Helper",
+  "authEnabled": false,
+  "issuer": "http://localhost:8080/api/auth",
+  "showDebugInformation": true,
+  "tokenRefresh": 30000,
+  "redirectPath": "/auth-redirect",
+  "postLogoutRedirectPath": "/dashboard",
+  "logoutPath": "/dashboard",
+  "scopes": [
+    "openid",
+    "email",
+    "profile",
+    "firstname",
+    "lastname",
+    "phone",
+    "name",
+    "employeeID",
+    "memberof"
+  ]
+}
+

@@ -1,0 +1,5 @@
+steps:
+  - name: 'gcr.io/cloud-builders/docker'
+    args: [ 'build', '-t', 'us.gcr.io/discogs-notifier-300502/ebay-ui:latest', '.', '-f', './apps/discogs-notifier-web/Dockerfile' ]
+images:
+  - 'us.gcr.io/discogs-notifier-300502/ebay-ui:latest'

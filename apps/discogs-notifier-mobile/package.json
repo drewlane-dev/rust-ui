@@ -1,0 +1,11 @@
+{
+  "name": "my-app",
+  "devDependencies": {
+    "@capacitor/cli": "^2.4.5"
+  },
+  "dependencies": {
+    "@ionic-native/core": "^5.1.0",
+    "@ionic-native/in-app-browser": "^5.30.0",
+    "cordova-plugin-inappbrowser": "^4.1.0"
+  }
+}

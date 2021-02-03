@@ -1,0 +1,30 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-list-item-disabled {
+  .mat-list-item-content {
+    .mat-icon {
+      color: rgb(128 128 128 / 39%) !important;
+    }
+    .navigation-label {
+      color: rgb(128 128 128 / 39%) !important;
+    }
+  }
+  background-color: white;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.app-body {
+  flex-grow: 1;
+  height: 100%;
+  overflow: auto;
+}

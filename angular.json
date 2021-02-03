@@ -1,0 +1,670 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "",
+  "projects": {
+    "common-config": {
+      "projectType": "library",
+      "root": "libs/common/config",
+      "sourceRoot": "libs/common/config/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/config/tsconfig.lib.json",
+              "libs/common/config/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common/config/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common/config/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "common-auth": {
+      "projectType": "library",
+      "root": "libs/common/auth",
+      "sourceRoot": "libs/common/auth/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/auth/tsconfig.lib.json",
+              "libs/common/auth/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common/auth/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common/auth/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "common-navigation": {
+      "projectType": "library",
+      "root": "libs/common/navigation",
+      "sourceRoot": "libs/common/navigation/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/navigation/tsconfig.lib.json",
+              "libs/common/navigation/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common/navigation/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common/navigation/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "features-home": {
+      "projectType": "library",
+      "root": "libs/features/home",
+      "sourceRoot": "libs/features/home/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/home/tsconfig.lib.json",
+              "libs/features/home/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/features/home/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/home/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "features-nested-router": {
+      "projectType": "library",
+      "root": "libs/features/nested-router",
+      "sourceRoot": "libs/features/nested-router/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/nested-router/tsconfig.lib.json",
+              "libs/features/nested-router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/features/nested-router/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/nested-router/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "features-login": {
+      "projectType": "library",
+      "root": "libs/features/login",
+      "sourceRoot": "libs/features/login/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/login/tsconfig.lib.json",
+              "libs/features/login/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/features/login/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/login/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "features-table": {
+      "projectType": "library",
+      "root": "libs/features/table",
+      "sourceRoot": "libs/features/table/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/table/tsconfig.lib.json",
+              "libs/features/table/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/features/table/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/features/table/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "common-router": {
+      "projectType": "library",
+      "root": "libs/common/router",
+      "sourceRoot": "libs/common/router/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/router/tsconfig.lib.json",
+              "libs/common/router/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common/router/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common/router/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-core": {
+      "projectType": "library",
+      "root": "libs/common/core",
+      "sourceRoot": "libs/common/core/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/core/tsconfig.lib.json",
+              "libs/common/core/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!libs/common/core/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "libs/common/core/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      }
+    },
+    "discogs-notifier-web": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "apps/discogs-notifier-web",
+      "sourceRoot": "apps/discogs-notifier-web/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/discogs-notifier-web",
+            "index": "apps/discogs-notifier-web/src/index.html",
+            "main": "apps/discogs-notifier-web/src/main.ts",
+            "polyfills": "apps/discogs-notifier-web/src/polyfills.ts",
+            "tsConfig": "apps/discogs-notifier-web/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/discogs-notifier-web/src/favicon.ico",
+              "apps/discogs-notifier-web/src/assets",
+              "apps/discogs-notifier-web/src/config.json"
+            ],
+            "styles": [
+              "apps/discogs-notifier-web/src/styles.scss"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/discogs-notifier-web/src/environments/environment.ts",
+                  "with": "apps/discogs-notifier-web/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "discogs-notifier-web:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "discogs-notifier-web:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "discogs-notifier-web:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/discogs-notifier-web/src/test.ts",
+            "polyfills": "apps/discogs-notifier-web/src/polyfills.ts",
+            "tsConfig": "apps/discogs-notifier-web/tsconfig.spec.json",
+            "karmaConfig": "apps/discogs-notifier-web/karma.conf.js",
+            "assets": [
+              "apps/discogs-notifier-web/src/favicon.ico",
+              "apps/discogs-notifier-web/src/assets"
+            ],
+            "styles": [
+              "apps/discogs-notifier-web/src/styles.scss"
+            ],
+            "scripts": []
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/discogs-notifier-web/tsconfig.app.json",
+              "apps/discogs-notifier-web/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "discogs-notifier-web-e2e": {
+      "projectType": "application",
+      "root": "apps/discogs-notifier-web-e2e",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "apps/discogs-notifier-web-e2e/protractor.conf.js",
+            "devServerTarget": "discogs-notifier-web:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "discogs-notifier-web:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "apps/discogs-notifier-web-e2e/tsconfig.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "discogs-notifier-mobile": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
+      "root": "apps/discogs-notifier-mobile",
+      "sourceRoot": "apps/discogs-notifier-mobile/src",
+      "prefix": "best-practice",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/apps/discogs-notifier-mobile",
+            "index": "apps/discogs-notifier-mobile/src/index.html",
+            "main": "apps/discogs-notifier-mobile/src/main.ts",
+            "polyfills": "apps/discogs-notifier-mobile/src/polyfills.ts",
+            "tsConfig": "apps/discogs-notifier-mobile/tsconfig.app.json",
+            "aot": true,
+            "assets": [
+              "apps/discogs-notifier-mobile/src/assets",
+              "apps/discogs-notifier-mobile/src/config.json",
+              {
+                "glob": "**/*.svg",
+                "input": "node_modules/ionicons/dist/ionicons/svg",
+                "output": "./svg"
+              }
+            ],
+            "styles": [
+              "apps/discogs-notifier-mobile/src/styles.scss",
+              {
+                "input": "apps/discogs-notifier-mobile/src/theme/variables.scss"
+              }
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/discogs-notifier-mobile/src/environments/environment.ts",
+                  "with": "apps/discogs-notifier-mobile/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb",
+                  "maximumError": "10kb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "discogs-notifier-mobile:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "discogs-notifier-mobile:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "discogs-notifier-mobile:build"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/discogs-notifier-mobile/tsconfig.app.json",
+              "apps/discogs-notifier-mobile/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/discogs-notifier-mobile/**/*"
+            ]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "apps/discogs-notifier-mobile/src/test.ts",
+            "tsConfig": "apps/discogs-notifier-mobile/tsconfig.spec.json",
+            "karmaConfig": "apps/discogs-notifier-mobile/karma.conf.js",
+            "polyfills": "apps/discogs-notifier-mobile/src/polyfills.ts",
+            "styles": [],
+            "scripts": [],
+            "assets": []
+          }
+        },
+        "cap": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "--help"
+          }
+        },
+        "add": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "add",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "add ios"
+            },
+            "android": {
+              "cmd": "add android"
+            }
+          }
+        },
+        "copy": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "copy",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "copy ios"
+            },
+            "android": {
+              "cmd": "copy android"
+            }
+          }
+        },
+        "open": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "open",
+            "packageInstall": false
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "open ios"
+            },
+            "android": {
+              "cmd": "open android"
+            }
+          }
+        },
+        "sync": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "sync",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "sync ios"
+            },
+            "android": {
+              "cmd": "sync android"
+            }
+          }
+        },
+        "update": {
+          "builder": "@nxtend/capacitor:cap",
+          "options": {
+            "cmd": "update",
+            "packageInstall": true
+          },
+          "configurations": {
+            "ios": {
+              "cmd": "update ios"
+            },
+            "android": {
+              "cmd": "update android"
+            }
+          }
+        }
+      }
+    },
+    "discogs-notifier-mobile-e2e": {
+      "root": "apps/discogs-notifier-mobile-e2e",
+      "sourceRoot": "apps/discogs-notifier-mobile-e2e/src",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/cypress:cypress",
+          "options": {
+            "cypressConfig": "apps/discogs-notifier-mobile-e2e/cypress.json",
+            "tsConfig": "apps/discogs-notifier-mobile-e2e/tsconfig.e2e.json",
+            "devServerTarget": "discogs-notifier-mobile:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "discogs-notifier-mobile:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "apps/discogs-notifier-mobile-e2e/tsconfig.e2e.json"
+            ],
+            "exclude": [
+              "**/node_modules/**",
+              "!apps/discogs-notifier-mobile-e2e/**/*"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "discogs-notifier-web",
+  "cli": {
+    "defaultCollection": "@nxtend/ionic-angular"
+  },
+  "schematics": {
+    "@nrwl/angular:application": {
+      "unitTestRunner": "karma",
+      "e2eTestRunner": "cypress"
+    },
+    "@nrwl/angular:library": {
+      "unitTestRunner": "karma"
+    }
+  }
+}

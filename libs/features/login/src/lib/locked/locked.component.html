@@ -1,0 +1,19 @@
+<div style="margin-left:15px;">
+  <h2>Locked Component</h2>
+  <mat-card class="example-card" *ngIf="(userinfo$ | async) as user">
+    <mat-card-header>
+      <mat-icon mat-card-avatar>person</mat-icon>
+      <mat-card-title>{{user.displayName}}</mat-card-title>
+      <mat-card-subtitle>{{user.username}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        {{user.email}}
+      </p>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+
+

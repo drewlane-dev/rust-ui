@@ -1,0 +1,33 @@
+{
+  "compileOnSave": true,
+  "compilerOptions": {
+    "baseUrl": ".",
+    "rootDir": ".",
+    "outDir": "./dist/out-tsc",
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2018", "dom"],
+    "paths": {
+      "@best-practice/common/config": ["libs/common/config/src/index.ts"],
+      "@best-practice/common/auth": ["libs/common/auth/src/index.ts"],
+      "@best-practice/common/navigation": [
+        "libs/common/navigation/src/index.ts"
+      ],
+      "@best-practice/features/home": ["libs/features/home/src/index.ts"],
+      "@best-practice/features/nested-router": [
+        "libs/features/nested-router/src/index.ts"
+      ],
+      "@best-practice/features/login": ["libs/features/login/src/index.ts"],
+      "@best-practice/features/table": ["libs/features/table/src/index.ts"],
+      "@best-practice/common/router": ["libs/common/router/src/index.ts"],
+      "@best-practice/common/core": ["libs/common/core/src/index.ts"]
+    },
+    "skipLibCheck": true
+  }
+}

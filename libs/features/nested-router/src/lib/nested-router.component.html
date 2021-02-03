@@ -1,0 +1,16 @@
+<h2>Nested Router</h2>
+<h4>A feature module with it's own nested router-outlet</h4>
+<div style="display:flex; height:100%;">
+  <app-sidenav [links]="links" [width]="200">
+    <div class="navigation-content" sidenav-content>
+      These links are subpaths to the current feature module route.
+    </div>
+
+  </app-sidenav>
+  <div>
+    You have selected:
+    <router-outlet></router-outlet>
+
+  </div>
+</div>
+

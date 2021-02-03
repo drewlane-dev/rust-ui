@@ -1,0 +1,26 @@
+
+.navigation-side {
+  height:100%;
+  border-right-color:rgba(128, 128, 128,0.5);
+  border-right-style: solid;
+  border-right-width: 1px;
+  width:56px;
+}
+
+a.active:focus, a.active, a.active:hover {
+  background-color: black;
+}
+
+span.active, span.active:focus span.active:hover {
+  color: white !important;
+}
+
+mat-icon.active, mat-icon.active:focus mat-icon.active:hover {
+  color: white !important;
+}
+
+.mat-list-base {
+  padding-top: 0;
+}
+
+
