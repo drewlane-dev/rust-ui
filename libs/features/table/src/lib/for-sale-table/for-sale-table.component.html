@@ -1,0 +1,63 @@
+
+<div style="text-align: center;" class="app-container">
+
+  <h2>For Saley</h2>
+  <div>
+    <form [formGroup]="form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Search...</mat-label>
+        <input matInput formControlName="search">
+      </mat-form-field>
+    </form>
+  </div>
+  <span *ngIf="dataSource.loading$ | async">loading</span>
+
+  <div class="app-body">
+    <table mat-table [dataSource]="dataSource" style="width:100%" matSort  [hidden]="(dataSource.loading$ | async)">
+
+
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.detail && element.detail.title && element.detail.title != 'Page Not Found' ? element.detail.title : element.itemType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="weight">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+        <td mat-cell *matCellDef="let element"> {{element.quantity}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="currencyType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Currency Type </th>
+        <td mat-cell *matCellDef="let element"> {{element.currencyDetail && element.currencyDetail.title && element.currencyDetail.title != 'Page Not Found'  ? element.currencyDetail.title : element.currencyType}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="costPerItem">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Cost </th>
+        <td mat-cell *matCellDef="let element"> {{element.costPerItem}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="location">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Location </th>
+        <td mat-cell *matCellDef="let element"> {{element.square}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="amountInStock">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Stock </th>
+        <td mat-cell *matCellDef="let element"> {{element.amountInStock}} </td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="['name', 'weight', 'currencyType', 'costPerItem', 'location', 'amountInStock'];" pos></tr>
+      <tr mat-row *matRowDef="let row; columns: ['name', 'weight', 'currencyType', 'costPerItem', 'location', 'amountInStock'];"></tr>
+    </table>
+  </div>
+
+  <div>
+    <mat-paginator [pageIndex]="(queryParams$ | async).page || 0" [pageSize]="(queryParams$ | async).pagesize || 20" [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons [length]="dataSource?.count$ | async"></mat-paginator>
+  </div>
+
+
+</div>
+

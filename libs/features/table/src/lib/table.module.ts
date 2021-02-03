@@ -11,11 +11,12 @@ import {MatSortModule} from '@angular/material/sort';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ForSaleTableComponent } from './for-sale-table/for-sale-table.component';
 
 export const routes: Routes = [
   {
     path: '',
-    component: ClientTableComponent,
+    component: TableComponent,
     children: [
       {
         path: 'client',
@@ -26,6 +27,10 @@ export const routes: Routes = [
         component: ServerTableComponent,
       },
       {
+        path: 'for-sale',
+        component: ForSaleTableComponent,
+      },
+      {
         path: '',
         redirectTo: 'client',
       }
@@ -34,7 +39,7 @@ export const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ClientTableComponent, ServerTableComponent, TableComponent],
+  declarations: [ClientTableComponent, ServerTableComponent, TableComponent, ForSaleTableComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

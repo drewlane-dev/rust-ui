@@ -1,4 +1,5 @@
 @import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
 
 @include mat-core();
 
@@ -27,4 +28,12 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-grow: 1;
   height: 100%;
   overflow: auto;
+}
+
+.content > mat-card {
+  width: 200px;
+}
+
+mat-card {
+  width: 200px;
 }

@@ -2,7 +2,7 @@ import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, Vi
 import { BehaviorSubject, interval, Observable, Subject } from 'rxjs';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
 import { debounceTime, delay, map, take, takeUntil, tap } from 'rxjs/operators';
-import {InventoryDataSource} from './client-table-datasource';
+import {InventoryDataSource} from './for-sale-table-datasource';
 import {MatSort, Sort} from '@angular/material/sort';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
@@ -11,12 +11,12 @@ import {ActivatedRoute, Params, Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
-  selector: 'app-client-table',
-  templateUrl: './client-table.component.html',
-  styleUrls: ['./client-table.component.css'],
+  selector: 'app-for-sale-table',
+  templateUrl: './for-sale-table.component.html',
+  styleUrls: ['./for-sale-table.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class ClientTableComponent implements OnInit, OnDestroy, AfterViewInit {
+export class ForSaleTableComponent implements OnInit, OnDestroy, AfterViewInit {
   destroy$: Subject<void>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -91,11 +91,10 @@ export class ClientTableComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getElements(pageIndex: number, pageSize: number, sort: Sort, search: string = ''): Observable<any> {
     const obs =
-      this.http.get<any>('https://localhost:888/api/inventory/all').pipe(
+      this.http.get<any>('http://localhost:888/api/map/forsale').pipe(
         tap(res => {
           console.log(res);
         }),
-        map(res => res.items),
         map(filteredItems => {
           return {
             data: filteredItems,

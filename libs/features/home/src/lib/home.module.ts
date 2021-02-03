@@ -4,6 +4,7 @@ import { HomeComponent } from './home.component';
 import {RouterModule, Routes} from '@angular/router';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 
 export const routes: Routes = [
   {
@@ -24,6 +25,7 @@ export const routes: Routes = [
     RouterModule.forChild(routes),
     MatIconModule,
     MatButtonModule,
+    MatCardModule
   ]
 })
 export class HomeModule { }

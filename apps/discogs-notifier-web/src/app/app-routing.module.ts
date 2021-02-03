@@ -16,6 +16,10 @@ const routes: Routes = [
     loadChildren: () => import('@best-practice/features/table').then(m => m.TableModule),
   },
   {
+    path: 'table/for-sale',
+    loadChildren: () => import('@best-practice/features/table').then(m => m.TableModule),
+  },
+  {
     path: 'home',
     loadChildren: () => import('@best-practice/features/home').then(m => m.HomeModule),
   },
