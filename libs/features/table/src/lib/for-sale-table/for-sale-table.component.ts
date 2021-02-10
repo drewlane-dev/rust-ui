@@ -1,14 +1,15 @@
 import {AfterViewInit, ChangeDetectionStrategy, Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
 import { BehaviorSubject, interval, Observable, Subject } from 'rxjs';
 import {MatPaginator, PageEvent} from '@angular/material/paginator';
-import { debounceTime, delay, map, take, takeUntil, tap } from 'rxjs/operators';
-import {InventoryDataSource} from './for-sale-table-datasource';
+import { debounceTime, delay, filter, map, take, takeUntil, tap } from 'rxjs/operators';
+import {ForSaleDataSource} from './for-sale-table-datasource';
 import {MatSort, Sort} from '@angular/material/sort';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {Store} from '@ngrx/store';
 import {selectQueryParams} from '@best-practice/common/router';
 import {ActivatedRoute, Params, Router} from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Server, serverActions, serverSelectors } from '@best-practice/common/server-store';
 
 @Component({
   selector: 'app-for-sale-table',
@@ -20,42 +21,52 @@ export class ForSaleTableComponent implements OnInit, OnDestroy, AfterViewInit {
   destroy$: Subject<void>;
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
-  dataSource: InventoryDataSource;
+  dataSource: ForSaleDataSource;
   page$: Subject<PageEvent>;
   sort$: Subject<Sort>;
-  cachedData$: Subject<any>;
+  cachedData$: Observable<any>;
 
   search$: Subject<string>;
 
   readonly form: FormGroup;
 
   public readonly queryParams$: Observable<Params>;
+  public readonly currentServer$: Observable<Server>;
 
   constructor(private readonly fb: FormBuilder,
               private readonly store: Store,
               private readonly router: Router,
               private route: ActivatedRoute,
-              private http: HttpClient
+              private http: HttpClient,
   ) {
     this.destroy$ = new Subject<void>();
     this.page$ = new Subject<PageEvent>();
     this.sort$ = new BehaviorSubject<Sort>({active: 'position', direction: 'asc'});
     this.search$ = new BehaviorSubject<string>('');
-    this.cachedData$ = new Subject<any>();
-    this.dataSource = new InventoryDataSource(this.page$, this.sort$, this.search$, this.http, this.cachedData$);
+    this.cachedData$ = this.store.select(serverSelectors.selectCurrentServerForSale).pipe(
+      map(filteredItems => {
+        return {
+          data: filteredItems,
+          count: filteredItems.length
+        };
+      }),
+    );
+    this.dataSource = new ForSaleDataSource(this.page$, this.sort$, this.search$, this.http, this.cachedData$);
     this.form = this.fb.group({search: ''});
 
     this.queryParams$ = store.select(selectQueryParams);
-    this.getElements(0, 1000, undefined, '');
+    this.currentServer$ = this.store.select(serverSelectors.selectCurrentServer).pipe(filter(server => server !== undefined));
+
   }
 
 
   ngOnInit(): void {
-    interval(10000)
-      .pipe(
-        takeUntil(this.destroy$),
-        tap( () => this.getElements(0, 1000, undefined, ''))
-      ).subscribe();
+
+    this.currentServer$.pipe(
+      takeUntil(this.destroy$)
+    ).subscribe((server) => {
+      this.store.dispatch(serverActions.forsale({id: server.id}));
+    });
   }
 
   handlePagination(): void {
@@ -89,29 +100,6 @@ export class ForSaleTableComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  getElements(pageIndex: number, pageSize: number, sort: Sort, search: string = ''): Observable<any> {
-    const obs =
-      this.http.get<any>('http://localhost:888/api/map/forsale').pipe(
-        tap(res => {
-          console.log(res);
-        }),
-        map(filteredItems => {
-          return {
-            data: filteredItems,
-            count: filteredItems.length
-          };
-        }),
-      );
-
-    obs.subscribe(res => {
-      console.log(res);
-      this.cachedData$.next(res);
-
-    });
-
-    return obs;
-  }
-
   handleSearching(): void {
     this.form.valueChanges.pipe(takeUntil(this.destroy$), debounceTime(300)).subscribe((val) => {
       // this.paginator.firstPage();
@@ -140,7 +128,7 @@ export class ForSaleTableComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-  mapChildLocations(consolidated)
+  mapChildLocations(consolidated): any
   {
     return consolidated.children.map((child) => {
       return `${child.storageName} Floor ${child.storageFloor}: (${child.quantity})`;

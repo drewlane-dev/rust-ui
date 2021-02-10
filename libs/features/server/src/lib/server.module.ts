@@ -6,6 +6,7 @@ import { NavigationModule } from '@best-practice/common/navigation';
 import { ServerDetailComponent } from './server-detail/server-detail.component';
 import { ForSaleTableComponent } from '../../../table/src/lib/for-sale-table/for-sale-table.component';
 import { TableModule } from '@best-practice/features/table';
+import { ClientTableComponent } from '../../../table/src/lib/client-table/client-table.component';
 
 
 export const routes: Routes = [
@@ -16,6 +17,10 @@ export const routes: Routes = [
       {
         path: ':id/for-sale',
         component: ForSaleTableComponent,
+      },
+      {
+        path: ':id/inventory',
+        component: ClientTableComponent,
       },
       {
         path: ':id',

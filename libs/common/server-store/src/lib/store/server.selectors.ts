@@ -18,6 +18,14 @@ export const selectCurrentServer = createSelector(selectRouteParams, selectServe
   return state.servers.filter(server => server.id === params.id)[0];
 });
 
-export const selectCurrentServerTime = createSelector(selectRouteParams, selectServerState, (params, state) =>  {
+export const selectCurrentServerTime = createSelector( selectServerState, ( state) =>  {
   return state.time;
+});
+
+export const selectCurrentServerForSale = createSelector( selectServerState, ( state) =>  {
+  return state.forsale;
+});
+
+export const selectCurrentServerInventory = createSelector( selectServerState, ( state) =>  {
+  return state.inventory;
 });

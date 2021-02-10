@@ -49,6 +49,34 @@ export class ServerEffects implements OnInitEffects {
     }),
   );
 
+  @Effect()
+  forsale = this.actions$.pipe(
+    ofType(serverActions.forsale),
+    switchMap((action) => {
+      return this.serverService.forsale(action.id).pipe(
+        map((forsale) =>
+          serverActions.forsaleSuccess({
+            forsale,
+          }),
+        ),
+      );
+    }),
+  );
+
+  @Effect()
+  inventory = this.actions$.pipe(
+    ofType(serverActions.inventory),
+    switchMap((action) => {
+      return this.serverService.inventory(action.id).pipe(
+        map((inventory) =>
+          serverActions.inventorySuccess({
+            inventory,
+          }),
+        ),
+      );
+    }),
+  );
+
   ngrxOnInitEffects(): Action {
     return { type: '[Envs] Initial Load' };
   }

@@ -5,7 +5,9 @@ import { createReducer, on, Action } from '@ngrx/store';
 export const initialState: ServerState = {
   servers: [],
   loading: false,
-  time: undefined
+  time: undefined,
+  forsale: [],
+  inventory: []
 };
 
 const reducer = createReducer(
@@ -22,6 +24,14 @@ const reducer = createReducer(
   on(serverActions.timeSuccess, (state, action) => ({
     ...state,
     time: action.time,
+  })),
+  on(serverActions.forsaleSuccess, (state, action) => ({
+    ...state,
+    forsale: action.forsale,
+  })),
+  on(serverActions.inventorySuccess, (state, action) => ({
+    ...state,
+    inventory: action.inventory,
   }))
 );
 
