@@ -1,7 +1,8 @@
 {
   "title": "Rust Daddy",
-  "authEnabled": false,
-  "issuer": "http://localhost:8080/api/auth",
+  "authEnabled": true,
+  "issuer": "https://companion-rust.facepunch.com/login",
+  "api": "http://localhost:8080/api/",
   "showDebugInformation": true,
   "tokenRefresh": 30000,
   "redirectPath": "/auth-redirect",

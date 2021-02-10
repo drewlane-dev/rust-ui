@@ -2,6 +2,9 @@
   <mat-toolbar color="primary" @flyInOutToolbar>
     <span>{{title}}</span>
     <span style='flex: 1'></span>
+    <ng-container *ngIf="currentServer$ | async; let server">
+      <span>&nbsp;&nbsp;&nbsp;&nbsp;{{server.name}}</span>
+    </ng-container>
     <ng-container *ngIf="time | async; let t">
       <span>&nbsp;&nbsp;&nbsp;&nbsp;State: {{t.state}}&nbsp;&nbsp;&nbsp;Time: {{t.time}}&nbsp;&nbsp;&nbsp; Until {{t.nextState}}:{{t.minutesUntilNextState}} Minutes</span>
     </ng-container>

@@ -7,6 +7,7 @@ import {MatListModule} from '@angular/material/list';
 import {AppRoutingModule} from './app-routing.module';
 import {NavigationModule} from '@best-practice/common/navigation';
 import {CoreModule} from '@best-practice/common/core';
+import { ServerStoreModule } from '@best-practice/common/server-store';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import {CoreModule} from '@best-practice/common/core';
     NavigationModule,
     MatIconModule,
     MatListModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ServerStoreModule
   ],
 
   bootstrap: [AppComponent]

@@ -16,10 +16,7 @@
               "libs/common/config/tsconfig.lib.json",
               "libs/common/config/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/config/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/config/**/*"]
           }
         },
         "test": {
@@ -49,10 +46,7 @@
               "libs/common/auth/tsconfig.lib.json",
               "libs/common/auth/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/auth/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/auth/**/*"]
           }
         },
         "test": {
@@ -82,10 +76,7 @@
               "libs/common/navigation/tsconfig.lib.json",
               "libs/common/navigation/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/navigation/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/navigation/**/*"]
           }
         },
         "test": {
@@ -115,10 +106,7 @@
               "libs/features/home/tsconfig.lib.json",
               "libs/features/home/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/features/home/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/features/home/**/*"]
           }
         },
         "test": {
@@ -181,10 +169,7 @@
               "libs/features/login/tsconfig.lib.json",
               "libs/features/login/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/features/login/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/features/login/**/*"]
           }
         },
         "test": {
@@ -214,10 +199,7 @@
               "libs/features/table/tsconfig.lib.json",
               "libs/features/table/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/features/table/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/features/table/**/*"]
           }
         },
         "test": {
@@ -247,10 +229,7 @@
               "libs/common/router/tsconfig.lib.json",
               "libs/common/router/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/router/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/router/**/*"]
           }
         },
         "test": {
@@ -276,10 +255,7 @@
               "libs/common/core/tsconfig.lib.json",
               "libs/common/core/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**",
-              "!libs/common/core/**/*"
-            ]
+            "exclude": ["**/node_modules/**", "!libs/common/core/**/*"]
           }
         },
         "test": {
@@ -317,9 +293,7 @@
               "apps/discogs-notifier-web/src/assets",
               "apps/discogs-notifier-web/src/config.json"
             ],
-            "styles": [
-              "apps/discogs-notifier-web/src/styles.scss"
-            ],
+            "styles": ["apps/discogs-notifier-web/src/styles.scss"],
             "scripts": []
           },
           "configurations": {
@@ -381,9 +355,7 @@
               "apps/discogs-notifier-web/src/favicon.ico",
               "apps/discogs-notifier-web/src/assets"
             ],
-            "styles": [
-              "apps/discogs-notifier-web/src/styles.scss"
-            ],
+            "styles": ["apps/discogs-notifier-web/src/styles.scss"],
             "scripts": []
           }
         },
@@ -394,9 +366,7 @@
               "apps/discogs-notifier-web/tsconfig.app.json",
               "apps/discogs-notifier-web/tsconfig.spec.json"
             ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -421,9 +391,7 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "apps/discogs-notifier-web-e2e/tsconfig.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "exclude": ["**/node_modules/**"]
           }
         }
       }
@@ -642,9 +610,7 @@
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
-            "tsConfig": [
-              "apps/discogs-notifier-mobile-e2e/tsconfig.e2e.json"
-            ],
+            "tsConfig": ["apps/discogs-notifier-mobile-e2e/tsconfig.e2e.json"],
             "exclude": [
               "**/node_modules/**",
               "!apps/discogs-notifier-mobile-e2e/**/*"
@@ -652,6 +618,60 @@
           }
         }
       }
+    },
+    "features-server": {
+      "projectType": "library",
+      "root": "libs/features/server",
+      "sourceRoot": "libs/features/server/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/features/server/tsconfig.lib.json",
+              "libs/features/server/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/features/server/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/features/server/src/test.ts",
+            "tsConfig": "libs/features/server/tsconfig.spec.json",
+            "karmaConfig": "libs/features/server/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {}
+    },
+    "common-server-store": {
+      "projectType": "library",
+      "root": "libs/common/server-store",
+      "sourceRoot": "libs/common/server-store/src",
+      "prefix": "best-practice",
+      "architect": {
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "libs/common/server-store/tsconfig.lib.json",
+              "libs/common/server-store/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!libs/common/server-store/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "libs/common/server-store/src/test.ts",
+            "tsConfig": "libs/common/server-store/tsconfig.spec.json",
+            "karmaConfig": "libs/common/server-store/karma.conf.js"
+          }
+        }
+      },
+      "schematics": {}
     }
   },
   "defaultProject": "discogs-notifier-web",

@@ -12,7 +12,7 @@ import { DOCUMENT } from '@angular/common';
   providedIn: 'root'
 })
 export class AuthService {
-  private token: string;
+  public token: string;
   private secret: string;
   private readonly destroy$ = new Subject<void>();
   public initializationEvents = new Subject<AuthEvent>();
@@ -44,7 +44,7 @@ export class AuthService {
     this.userInfo$ = this.events.pipe(
       filter(evt => evt.name === AuthEvents.AuthenticationAccessTokenObtained),
       switchMap(evt => {
-        return this.http.get(`${this.config.issuer}/identity`, {
+        return this.http.get(`${this.config.api}user`, {
           headers: {
             Authorization: `Bearer ${this.token}`
           }
@@ -61,26 +61,24 @@ export class AuthService {
   }
 
   login(redirectUrl: string = '/'): void {
-    this.http.get<any>(`${this.config.issuer}/request`)
-      .subscribe(res => {
-        console.log(res);
-        this.document.location.href = res.authorizationUrl;
-      });
+    console.log(window.origin);
+    this.document.location.href = `${this.config.issuer}?returnUrl=${window.origin}/auth-redirect`;
   }
 
-  getAccessToken(code: string): Observable<any> {
+  getAccessToken(token: string, steamId: string): Observable<any> {
     const body = {
-      code,
+      token,
+      steamId
     };
     return this.http
-      .post<any>(`${this.config.issuer}/access`, body)
+      .put<any>(`${this.config.api}user`, body)
       .pipe(tap((res) => {
         console.log(res);
-        if (res && res.token)
+        if (res && res.access)
         {
           console.log(res);
-          localStorage.setItem('ebay_auth_token', res.token);
-          this.token = res.token;
+          localStorage.setItem('rust_auth_token', res.access);
+          this.token = res.access;
           this.events.next(new AuthEvent(AuthEvents.AuthenticationAccessTokenObtained));
         }
       }));
@@ -116,9 +114,9 @@ export class AuthService {
       this.initializationEvents.next(new AuthEvent(AuthEvents.AuthenticationInitializationFailed, err));
     }
     this.initializationEvents.complete();
-    if (localStorage.getItem('ebay_auth_token'))
+    if (localStorage.getItem('rust_auth_token'))
     {
-      this.token = localStorage.getItem('ebay_auth_token');
+      this.token = localStorage.getItem('rust_auth_token');
       this.events.next(new AuthEvent(AuthEvents.AuthenticationAccessTokenObtained));
     }
   }

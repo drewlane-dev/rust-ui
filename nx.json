@@ -12,49 +12,31 @@
   },
   "projects": {
     "common-config": {
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "common-auth": {
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "common-navigation": {
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "features-home": {
-      "tags": [
-        "feature"
-      ]
+      "tags": ["feature"]
     },
     "features-nested-router": {
-      "tags": [
-        "feature"
-      ]
+      "tags": ["feature"]
     },
     "features-login": {
-      "tags": [
-        "feature"
-      ]
+      "tags": ["feature"]
     },
     "features-table": {
-      "tags": [
-        "feature"
-      ]
+      "tags": ["feature"]
     },
     "common-router": {
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "common-core": {
-      "tags": [
-        "lib"
-      ]
+      "tags": ["lib"]
     },
     "discogs-notifier-web": {
       "tags": []
@@ -67,9 +49,13 @@
     },
     "discogs-notifier-mobile-e2e": {
       "tags": [],
-      "implicitDependencies": [
-        "discogs-notifier-mobile"
-      ]
+      "implicitDependencies": ["discogs-notifier-mobile"]
+    },
+    "features-server": {
+      "tags": ["feature"]
+    },
+    "common-server-store": {
+      "tags": ["lib"]
     }
   }
 }

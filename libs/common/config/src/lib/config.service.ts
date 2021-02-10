@@ -7,7 +7,7 @@ import {delay, take} from 'rxjs/operators';
   providedIn: 'root'
 })
 export class ConfigService<T> {
-  private config: BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
+  public config: BehaviorSubject<any> = new BehaviorSubject<any>(undefined);
   public events = new Subject<ConfigEvent>();
   public done = this.events.pipe(take(1)).toPromise();
 
@@ -16,7 +16,7 @@ export class ConfigService<T> {
   async load(): Promise<any> {
     try {
       // TODO: Remove this for production app this is here for visualization
-      const config = await this.httpClient.get('config.json').pipe(take(1), delay(2000)).toPromise();
+      const config = await this.httpClient.get('config.json').pipe(take(1)).toPromise();
       this.config.next(config);
       this.config.complete();
       this.events.next(new ConfigEvent(ConfigEvents.LoadSucceeded));

@@ -2,8 +2,11 @@ import {Component, Inject, OnInit, Output, EventEmitter, Input} from '@angular/c
 import {animate, group, query, stagger, state, style, transition, trigger} from '@angular/animations';
 import {Link} from '../link';
 import { HttpClient } from '@angular/common/http';
-import { interval, Subject } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
+import { interval, Observable, Subject } from 'rxjs';
+import { filter, map, switchMap } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { Server, serverActions, serverSelectors, Time } from '@best-practice/common/server-store';
+import { selectCurrentServer } from '../../../../server-store/src/lib/store/server.selectors';
 
 @Component({
   selector: 'app-navigation',
@@ -37,15 +40,21 @@ export class NavigationComponent implements OnInit {
   title = 'Default App Name';
 
   public readonly time: Subject<any> = new Subject<any>();
+  public readonly currentServer$: Observable<Server>;
+  public readonly currentServerTime$: Observable<Time>;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private store: Store) {
+    this.currentServer$ = this.store.select(serverSelectors.selectCurrentServer).pipe(filter(server => server !== undefined));
+    this.currentServerTime$ = this.store.select(serverSelectors.selectCurrentServerTime);
   }
 
   ngOnInit(): void {
-    interval(5000).pipe(
-      switchMap(() => {
-        return this.http.get<any>('http://localhost:888/api/map/current/time')
-      }),
+    this.currentServer$.subscribe(server => {
+      console.log('Got Here!');
+      this.store.dispatch(serverActions.time({id: server.id}));
+    });
+    this.currentServerTime$.pipe(
+      filter(time => time !== undefined),
       map((time) => {
         let currMins = (time.time > time.sunset) ? (24 - time.time + time.sunrise) : time.sunrise - time.time;
         console.log(`currMins ${currMins}`);

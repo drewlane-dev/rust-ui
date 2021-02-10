@@ -26,7 +26,11 @@
       "@best-practice/features/login": ["libs/features/login/src/index.ts"],
       "@best-practice/features/table": ["libs/features/table/src/index.ts"],
       "@best-practice/common/router": ["libs/common/router/src/index.ts"],
-      "@best-practice/common/core": ["libs/common/core/src/index.ts"]
+      "@best-practice/common/core": ["libs/common/core/src/index.ts"],
+      "@best-practice/features/server": ["libs/features/server/src/index.ts"],
+      "@best-practice/common/server-store": [
+        "libs/common/server-store/src/index.ts"
+      ]
     },
     "skipLibCheck": true
   }

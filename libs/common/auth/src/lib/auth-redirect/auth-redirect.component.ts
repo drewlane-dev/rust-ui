@@ -51,7 +51,8 @@ export class AuthRedirectComponent implements OnInit, OnDestroy {
   ngOnInit(): Observable<string> {
 
     const queryParams = this.router.routerState.snapshot.root.queryParamMap;
-    const tokenObs = this.auth.getAccessToken(queryParams.get('code'));
+    console.log(queryParams.get('token'));
+    const tokenObs = this.auth.getAccessToken(queryParams.get('token'), queryParams.get('steamId'));
 
     const redirect = tokenObs.pipe(
       takeUntil(this.destroy$),

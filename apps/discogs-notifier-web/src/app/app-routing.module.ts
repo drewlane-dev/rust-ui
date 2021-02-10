@@ -32,13 +32,19 @@ const routes: Routes = [
     loadChildren: () => import('@best-practice/common/auth').then(m => m.AuthModule),
   },
   {
+    path: 'server',
+    loadChildren: () => import('@best-practice/features/server').then(m => m.ServerModule),
+  },
+  {
     path: '**',
     redirectTo: 'home',
   },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    paramsInheritanceStrategy: 'always'
+  })],
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
