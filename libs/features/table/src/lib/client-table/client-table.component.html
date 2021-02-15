@@ -38,7 +38,7 @@
       </ng-container>
 
 
-      <tr mat-header-row *matHeaderRowDef="['position', 'name', 'weight', 'locations'];" pos></tr>
+      <tr mat-header-row *matHeaderRowDef="['position', 'name', 'weight', 'locations']; sticky: true;" pos></tr>
       <tr mat-row *matRowDef="let row; columns: ['position', 'name', 'weight', 'locations'];"></tr>
     </table>
   </div>

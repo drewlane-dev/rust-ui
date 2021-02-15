@@ -3,7 +3,7 @@
   <mat-nav-list>
     <a class="navigation-link" mat-list-item *ngFor="let link of links" [routerLink]="link.href" routerLinkActive="active" [disabled] = "link.guard ? !(link.guard | async) : false">
       <mat-icon  color="accent" aria-hidden="false" routerLinkActive="active">{{link.icon}}</mat-icon>
-      <span [hidden]="!isOpen" style="color: black; padding-left: 10px;" class="navigation-label" routerLinkActive="active">{{link.label}}</span>
+      <span [hidden]="!isOpen" style="color: white; padding-left: 10px;" class="navigation-label" routerLinkActive="active">{{link.label}}</span>
     </a>
   </mat-nav-list>
   <div [hidden]="!isOpen" style="overflow-x:visible;" [style.width.px]="width">

@@ -8,7 +8,11 @@
 }
 
 a.active:focus, a.active, a.active:hover {
-  background-color: black;
+  background-color: #b42e18;
+}
+
+a {
+  color: white !important;
 }
 
 span.active, span.active:focus span.active:hover {
