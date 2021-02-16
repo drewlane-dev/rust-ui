@@ -23,9 +23,13 @@ export class AppComponent implements OnInit {
     this.links$ = this.store.select(serverSelectors.selectServers).pipe(
       map(servers => {
         console.log(servers);
-        return servers.map((s) => {
-          return {href: `./server/${s.id}`, label: s.name, icon: 'home'};
-        });
+        let links = [
+          {href: `./home`, label: 'Home', icon: 'home'}
+        ];
+        links = links.concat( servers.map((s) => {
+          return {href: `./server/${s.id}`, label: s.name, icon: 'computer'};
+        }));
+        return links;
       })
     );
   }

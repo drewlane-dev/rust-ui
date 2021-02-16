@@ -1,6 +1,12 @@
 <div style="text-align: center;">
   <h2 style="text-align: center;">Rust Daddy</h2>
-  <h4 style="text-align: center;">Please Authenticate and pair with servers</h4>
+  <h4 style="text-align: center;" *ngIf="isLoggedIn$ | async" >Please pair with servers with in-game  Rust+ menu</h4>
+  <h4 style="text-align: center;" *ngIf="!(isLoggedIn$ | async)" >Please login</h4>
+
+  <div style="margin-bottom:10px;">
+    <button mat-raised-button color="primary" *ngIf="isLoggedIn$ | async" (click)="logout()">Logout</button>
+    <button mat-raised-button color="primary" *ngIf="!(isLoggedIn$ | async)" (click)="login()">Login</button>
+  </div>
 
 </div>
 

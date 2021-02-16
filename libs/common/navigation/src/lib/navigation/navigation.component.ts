@@ -60,7 +60,7 @@ export class NavigationComponent implements OnInit {
         console.log(`currMins ${currMins}`);
         if (time.time > time.sunrise && time.time < time.sunset) {
           return {
-            state: 'Day',
+            state: 'wb_sunny',
             minutesUntilNextState: Math.floor((time.dayLengthMinutes/24) * ((time.sunset - time.time))),
             time: `${Math.floor(time.time)}:${Math.floor((time.time - Math.floor(time.time))*60)}`,
             nextState: 'Night'
@@ -68,7 +68,7 @@ export class NavigationComponent implements OnInit {
         }else {
 
             return {
-              state: 'Night',
+              state: 'nightlight',
               minutesUntilNextState: Math.floor((time.dayLengthMinutes / 24) * (currMins)),
               time: `${Math.floor(time.time)}:${Math.floor((time.time - Math.floor(time.time))*60)}`,
               nextState: 'Day'
