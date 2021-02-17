@@ -29,3 +29,7 @@ export const selectCurrentServerForSale = createSelector( selectServerState, ( s
 export const selectCurrentServerInventory = createSelector( selectServerState, ( state) =>  {
   return state.inventory;
 });
+
+export const selectCurrentServerTeam = createSelector( selectServerState, ( state) =>  {
+  return state.team;
+});

@@ -77,6 +77,20 @@ export class ServerEffects implements OnInitEffects {
     }),
   );
 
+  @Effect()
+  team = this.actions$.pipe(
+    ofType(serverActions.team),
+    switchMap((action) => {
+      return this.serverService.team(action.id).pipe(
+        map((team) =>
+          serverActions.teamSuccess({
+            team,
+          }),
+        ),
+      );
+    }),
+  );
+
   ngrxOnInitEffects(): Action {
     return { type: '[Envs] Initial Load' };
   }

@@ -39,6 +39,18 @@ export interface SaleItem {
 
 }
 
+export interface TeamMember {
+  steamId: number;
+  name: string;
+  x: number;
+  y: number;
+  isOnline: boolean;
+  spawnTime: number;
+  isAlive: boolean;
+  deathTime: number;
+  square: string;
+}
+
 export interface InventoryItem {
   name: string;
   quantity: number;
@@ -56,6 +68,8 @@ export interface ServerState {
   time: Time;
   forsale: SaleItem[];
   inventory: InventoryItem[];
+  team: TeamMember[];
+
 
 }
 

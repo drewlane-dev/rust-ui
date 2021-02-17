@@ -1,0 +1,27 @@
+
+<div style="display:flex; height:100%;">
+
+
+  <div class="app-container" style="width:100%; height:100%;">
+
+    <ng-container *ngIf="team$ | async; let team">
+      <mat-card style="margin-left: 20px; margin-top:20px;" class="mat-elevation-z8">
+        <mat-card-header>
+          <div mat-card-avatar >
+            <mat-icon mat-list-icon >group</mat-icon>
+          </div>
+
+          Team Info
+        </mat-card-header>
+        <mat-list>
+          <mat-list-item *ngFor="let member of team">
+            <mat-icon mat-list-icon [ngStyle]="getIconStyle(member)">{{getIcon(member)}}</mat-icon>
+            <div mat-line>{{member.name}}</div>
+            <div mat-line> {{member.square}} </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+    </ng-container>
+
+  </div>
+</div>

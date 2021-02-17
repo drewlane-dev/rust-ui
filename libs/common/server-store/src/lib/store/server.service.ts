@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { InventoryItem, SaleItem, Server, Time } from './server.models';
+import { InventoryItem, SaleItem, Server, TeamMember, Time } from './server.models';
 import { AuthService } from '@best-practice/common/auth';
 import { ConfigService } from '@best-practice/common/config';
 import { AppConfig } from '@best-practice/common/core';
@@ -38,6 +38,14 @@ export class ServerService {
 
   inventory(id: string): Observable<InventoryItem[]> {
     return this.http.get<InventoryItem[]>(`${this.config.get().api}server/${id}/inventory`, {
+      headers: {
+        Authorization: `Bearer ${this.auth.token}`
+      }
+    });
+  }
+
+  team(id: string): Observable<TeamMember[]> {
+    return this.http.get<TeamMember[]>(`${this.config.get().api}server/${id}/team`, {
       headers: {
         Authorization: `Bearer ${this.auth.token}`
       }

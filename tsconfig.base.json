@@ -30,6 +30,9 @@
       "@best-practice/features/server": ["libs/features/server/src/index.ts"],
       "@best-practice/common/server-store": [
         "libs/common/server-store/src/index.ts"
+      ],
+      "@best-practice/features/server-summary": [
+        "libs/features/server-summary/src/index.ts"
       ]
     },
     "skipLibCheck": true

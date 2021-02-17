@@ -26,9 +26,10 @@ export class ServerComponent implements OnInit {
     this.links$ = this.params$.pipe(
       map(params => {
           return [
+            {href: `./${params.id}/summary`, label: 'Summary', icon: 'table'},
             {href: `./${params.id}/for-sale`, label: 'For Sale', icon: 'money'},
-            {href: `./${params.id}/inventory`, label: 'Inventory', icon: 'table'}
-            ];
+            {href: `./${params.id}/inventory`, label: 'Inventory', icon: 'table'},
+          ];
       })
     );
 

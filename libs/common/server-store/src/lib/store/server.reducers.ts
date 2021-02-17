@@ -7,7 +7,8 @@ export const initialState: ServerState = {
   loading: false,
   time: undefined,
   forsale: [],
-  inventory: []
+  inventory: [],
+  team: []
 };
 
 const reducer = createReducer(
@@ -32,6 +33,10 @@ const reducer = createReducer(
   on(serverActions.inventorySuccess, (state, action) => ({
     ...state,
     inventory: action.inventory,
+  })),
+  on(serverActions.teamSuccess, (state, action) => ({
+    ...state,
+    team: action.team,
   }))
 );
 

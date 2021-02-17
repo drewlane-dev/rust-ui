@@ -3,11 +3,11 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { ServerComponent } from './server.component';
 import { NavigationModule } from '@best-practice/common/navigation';
-import { ServerDetailComponent } from './server-detail/server-detail.component';
-import { ForSaleTableComponent } from '../../../table/src/lib/for-sale-table/for-sale-table.component';
+import { ForSaleTableComponent } from '@best-practice/features/table';
 import { TableModule } from '@best-practice/features/table';
-import { ClientTableComponent } from '../../../table/src/lib/client-table/client-table.component';
+import { ClientTableComponent } from '@best-practice/features/table';
 import { MatTabsModule } from '@angular/material/tabs';
+import { ServerSummaryComponent } from '@best-practice/features/server-summary';
 
 
 export const routes: Routes = [
@@ -24,8 +24,12 @@ export const routes: Routes = [
         component: ClientTableComponent,
       },
       {
+        path: ':id/summary',
+        component: ServerSummaryComponent,
+      },
+      {
         path: ':id',
-        redirectTo: ':id/for-sale',
+        redirectTo: ':id/summary',
       },
     ],
   },
@@ -33,7 +37,7 @@ export const routes: Routes = [
 
 
 @NgModule({
-  declarations: [ServerComponent, ServerDetailComponent],
+  declarations: [ServerComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
