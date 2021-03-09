@@ -69,8 +69,19 @@ export interface ServerState {
   forsale: SaleItem[];
   inventory: InventoryItem[];
   team: TeamMember[];
+  devices: Device[];
 
 
+}
+
+export interface Device {
+  name: string;
+  id: number;
+  thumbnail: string;
+  serverId: string;
+  playerId: number;
+  state: boolean;
+  type: string;
 }
 
 export const selectServerState = createFeatureSelector<ServerState>('servers');

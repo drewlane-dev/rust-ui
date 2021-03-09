@@ -1,0 +1,27 @@
+
+<div style="display:flex; height:100%;">
+
+
+  <div class="app-container" style="width:100%; height:100%;">
+
+    <ng-container *ngIf="devices$ | async; let devices">
+      <mat-card style="margin-left: 20px; margin-top:20px;" class="mat-elevation-z8">
+        <mat-card-header>
+          <div mat-card-avatar>
+            <mat-icon mat-list-icon >group</mat-icon>
+          </div>
+
+          Devices
+        </mat-card-header>
+        <mat-list>
+          <mat-list-item *ngFor="let device of devices">
+            <div mat-line>{{device.name}}</div>
+            <div mat-line> {{device.type}} </div>
+            <div mat-line> {{device.state}} </div>
+          </mat-list-item>
+        </mat-list>
+      </mat-card>
+    </ng-container>
+
+  </div>
+</div>

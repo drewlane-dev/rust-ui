@@ -33,7 +33,8 @@
       ],
       "@best-practice/features/server-summary": [
         "libs/features/server-summary/src/index.ts"
-      ]
+      ],
+      "@best-practice/features/devices": ["libs/features/devices/src/index.ts"]
     },
     "skipLibCheck": true
   }

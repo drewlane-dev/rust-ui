@@ -91,6 +91,20 @@ export class ServerEffects implements OnInitEffects {
     }),
   );
 
+  @Effect()
+  devices = this.actions$.pipe(
+    ofType(serverActions.devices),
+    switchMap((action) => {
+      return this.serverService.devices(action.id).pipe(
+        map((devices) =>
+          serverActions.devicesSuccess({
+            devices,
+          }),
+        ),
+      );
+    }),
+  );
+
   ngrxOnInitEffects(): Action {
     return { type: '[Envs] Initial Load' };
   }

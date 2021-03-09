@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { InventoryItem, SaleItem, Server, TeamMember, Time } from './server.models';
+import { Device, InventoryItem, SaleItem, Server, TeamMember, Time } from './server.models';
 
 export const list = createAction('[Server] List');
 export const listSuccess = createAction('[Server] List Success', props<{ servers: Server[] }>());
@@ -15,3 +15,6 @@ export const inventorySuccess = createAction('[Server] Inventory Success', props
 
 export const team = createAction('[Server] Team', props<{ id: string }>());
 export const teamSuccess = createAction('[Server] Team Success', props<{ team: TeamMember[] }>());
+
+export const devices = createAction('[Server] Devices', props<{ id: string }>());
+export const devicesSuccess = createAction('[Server] Devices Success', props<{ devices: Device[] }>());

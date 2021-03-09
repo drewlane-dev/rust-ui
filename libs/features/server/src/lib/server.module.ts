@@ -8,6 +8,7 @@ import { TableModule } from '@best-practice/features/table';
 import { ClientTableComponent } from '@best-practice/features/table';
 import { MatTabsModule } from '@angular/material/tabs';
 import { ServerSummaryComponent } from '@best-practice/features/server-summary';
+import { DevicesComponent } from '@best-practice/features/devices';
 
 
 export const routes: Routes = [
@@ -26,6 +27,10 @@ export const routes: Routes = [
       {
         path: ':id/summary',
         component: ServerSummaryComponent,
+      },
+      {
+        path: ':id/devices',
+        component: DevicesComponent,
       },
       {
         path: ':id',

@@ -33,3 +33,7 @@ export const selectCurrentServerInventory = createSelector( selectServerState, (
 export const selectCurrentServerTeam = createSelector( selectServerState, ( state) =>  {
   return state.team;
 });
+
+export const selectCurrentServerDevices = createSelector( selectServerState, ( state) =>  {
+  return state.devices;
+});

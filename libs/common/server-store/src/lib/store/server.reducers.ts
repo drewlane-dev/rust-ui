@@ -8,7 +8,8 @@ export const initialState: ServerState = {
   time: undefined,
   forsale: [],
   inventory: [],
-  team: []
+  team: [],
+  devices: []
 };
 
 const reducer = createReducer(
@@ -37,6 +38,10 @@ const reducer = createReducer(
   on(serverActions.teamSuccess, (state, action) => ({
     ...state,
     team: action.team,
+  })),
+  on(serverActions.devicesSuccess, (state, action) => ({
+    ...state,
+    devices: action.devices,
   }))
 );
 

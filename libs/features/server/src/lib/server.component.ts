@@ -29,6 +29,7 @@ export class ServerComponent implements OnInit {
             {href: `./${params.id}/summary`, label: 'Summary', icon: 'table'},
             {href: `./${params.id}/for-sale`, label: 'For Sale', icon: 'money'},
             {href: `./${params.id}/inventory`, label: 'Inventory', icon: 'table'},
+            {href: `./${params.id}/devices`, label: 'Devices', icon: 'table'},
           ];
       })
     );

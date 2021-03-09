@@ -59,6 +59,9 @@
     },
     "features-server-summary": {
       "tags": ["feature"]
+    },
+    "features-devices": {
+      "tags": ["feature"]
     }
   }
 }
